@@ -4,7 +4,7 @@
 
 [Mongoose](http://mongoosejs.com/) is one of the best ODMs for MongoDB. Mongoose provides a straight-forward, schema-based solution to modeling your application data and includes built-in type casting, validation, query building, business logic hooks and more, out of the box.
 
-Mongoose does not require the specific structure of files. This is great but it always rises a common question on how to use a library within a project in a proper way. We don't want to manually figure the right way on how to split the code into multiple files. Things can be quite complicated especially when dealing with multiple database instances.
+Mongoose does not require a specific structure of your project files. This is great but it always rises a common question on how to use a library within a project in a proper way. We do not want to manually figure the right way on how to split the code into multiple files every time we start a new Mongoose project. Things can be quite complicated especially when dealing with multiple database instances.
 
 `Mongoose-glue` brings a unified MVC-style structure for models into your NodeJS project.
 
