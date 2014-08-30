@@ -1,0 +1,45 @@
+{
+  "name": "mongoose-glue",
+  "version": "0.0.1",
+  "description": "Mongoose.js with structure.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./node_modules/jasmine-node/bin/jasmine-node ./spec --verbose"
+  },
+  "engines": {
+    "node": ">= 0.11.9"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/xpepermint/mongoose-glue.git"
+  },
+  "keywords": [
+    "odm",
+    "odms",
+    "orm",
+    "orms",
+    "mapper",
+    "model",
+    "models",
+    "structure",
+    "optimization",
+    "mvc",
+    "mongoose",
+    "mongodb"
+  ],
+  "author": "xpepermint",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xpepermint/mongoose-glue/issues"
+  },
+  "homepage": "https://github.com/xpepermint/mongoose-glue",
+  "dependencies": {
+    "config-keys": "0.0.3",
+    "lodash": "^2.4.1",
+    "mongoose": "^3.9.1"
+  },
+  "devDependencies": {
+    "jasmine-node": "^2.0.0",
+    "mongoose-timestamp": "^0.3.0"
+  }
+}
