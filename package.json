@@ -1,6 +1,6 @@
 {
   "name": "mongoose-glue",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Mongoose.js with structure.",
   "main": "index.js",
   "scripts": {

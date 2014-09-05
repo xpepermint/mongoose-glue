@@ -104,6 +104,13 @@ Bird.create({ name: "Fluppy" }, function(err, data) {
   console.log('Mongoose Fluppy bird created.');
 });
 ```
+You can directly access the mongoose module and its elements.
+
+```js
+var _ = require('mongoose-glue');
+var mongoose = _.mongoose;
+var ObjectId = _.types.ObjectId;
+```
 
 You can also access an instance of a database connection.
 
