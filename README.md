@@ -4,9 +4,15 @@
 
 [Mongoose](http://mongoosejs.com/) is one of the best ODMs for MongoDB. Mongoose provides a straight-forward, schema-based solution to modeling your application data and includes built-in type casting, validation, query building, business logic hooks and more, out of the box.
 
-Mongoose does not require a specific structure of your project files. This is great but it always rises a common question on how to use a library within a project in a proper way. We do not want to manually figure the right way on how to split the code into multiple files every time we start a new Mongoose project. Things can be quite complicated especially when dealing with multiple database instances.
+`Mongoose` does not require a specific structure of your project files. This is great but it always rises a common question on how to use a library within a project in a proper way. We do not want to manually figure the right way on how to split the code into multiple files every time we start a new Mongoose project. Things can be quite complicated especially when dealing with multiple database instances.
 
-`Mongoose-glue` brings a unified MVC-style structure for models into your NodeJS project.
+`Mongoose-glue` optimizes your code and brings the following features into your NodeJS project:
+- Unified MVC-style structure for models.
+- Multiple Mongoose database/cluster connections.
+- Single point of configuration.
+- Powerful model schema and inheritance.
+- Support for all Mongoose features including middlewares, plugins and discriminators.
+- Support fro MongoDB [GridFS](http://docs.mongodb.org/manual/core/gridfs/) over [gridfs-stream](https://github.com/aheckmann/gridfs-stream).
 
 ## Installation
 
@@ -94,7 +100,44 @@ _.connect({
 
 ## API
 
-After the project has been setup we can access any model like this:
+### .connect(options)
+
+Type: `Function`
+
+Connects to all databases/clusters defined inside `mongoose.js` and loads models.
+
+```js
+var _ = require('mongoose-glue');
+
+_.connect({
+  logger: console.log
+});
+```
+
+### .disconnect()
+
+Type: `Function`
+
+Disconnects from all databases/clusters and unloads models.
+
+### .connection(name)
+
+Type: `Function`
+Returns: `Object`
+
+Returns a database/cluster instance of the `name` connection.
+
+```js
+var _ = require('mongoose-glue');
+var conn = _.connection('mongo1');
+```
+
+### .model(name)
+
+Type: `Function`
+Returns: `Object`
+
+Returns a model instance defined inside `name` file.
 
 ```js
 var _ = require('mongoose-glue');
@@ -104,17 +147,62 @@ Bird.create({ name: "Fluppy" }, function(err, data) {
   console.log('Mongoose Fluppy bird created.');
 });
 ```
-You can directly access the mongoose module and its elements.
+
+### .gfs(name)
+
+Type: `Function`
+Returns: `Object`
+
+Returns a configured `gridfs-stream` instance for the `name` connection.
 
 ```js
 var _ = require('mongoose-glue');
-var mongoose = _.mongoose;
+var gfs = _.gfs('mongo1');
+```
+
+### .mongoose
+
+Type: `Object`
+
+Direct access to mongoose model.
+
+```js
+var _ = require('mongoose-glue');
 var ObjectId = _.types.ObjectId;
 ```
 
-You can also access an instance of a database connection.
+### .types
+
+Type: `Object`
+
+Direct access to mongoose data types.
 
 ```js
 var _ = require('mongoose-glue');
-var conn = _.connection('mongo1');
+var ObjectId = _.types.ObjectId;
+```
+
+## Examples
+
+Use models anywhere in your app.
+
+```js
+var _ = require('mongoose-glue');
+var Bird = _.model('bird');
+
+Bird.create({ name: "Fluppy" }, function(err, data) {
+  console.log('Mongoose Fluppy bird created.');
+});
+```
+
+Store your files inside your MongoDB database.
+
+```js
+var fs = require('fs');
+var gfs = require('mongoose-glue').gfs('mongo1');
+
+// read file on local disk, save into mongodb
+fs.createReadStream('./tmp/myfile.txt').pipe( gfs.createWriteStream({ filename: 'myfile.txt' }) );
+// read file stored inside mongodb, save to local disk
+gfs.createReadStream({ filename: 'myfile.txt' }).pipe( fs.createWriteStream('./tmp/myfile.txt') );
 ```

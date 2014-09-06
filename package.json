@@ -1,6 +1,6 @@
 {
   "name": "mongoose-glue",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Mongoose.js with structure.",
   "main": "index.js",
   "scripts": {
@@ -35,6 +35,7 @@
   "homepage": "https://github.com/xpepermint/mongoose-glue",
   "dependencies": {
     "config-keys": "0.0.3",
+    "gridfs-stream": "^0.5.1",
     "lodash": "^2.4.1",
     "mongoose": "^3.9.1"
   },
