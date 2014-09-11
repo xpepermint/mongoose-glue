@@ -1,4 +1,4 @@
-# mongoose-glue
+# [mongoose](mongoosejs.com)-glue
 
 ![Build Status](https://travis-ci.org/xpepermint/mongoose-glue.svg?branch=master)&nbsp;[![NPM version](https://badge.fury.io/js/mongoose-glue.svg)](http://badge.fury.io/js/mongoose-glue)&nbsp;[![Dependency Status](https://gemnasium.com/xpepermint/mongoose-glue.svg)](https://gemnasium.com/xpepermint/mongoose-glue)
 
