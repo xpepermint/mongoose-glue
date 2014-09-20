@@ -168,18 +168,9 @@ Direct access to mongoose model.
 
 ```js
 var _ = require('mongoose-glue');
-var ObjectId = _.types.ObjectId;
-```
-
-### .types
-
-Type: `Object`
-
-Direct access to mongoose data types.
-
-```js
-var _ = require('mongoose-glue');
-var ObjectId = _.types.ObjectId;
+var ObjectId = _.mongoose.Schema.Types.ObjectId;
+var validId = _.mongoose.mongo.ObjectID.isValid('xxx');
+// -> false
 ```
 
 ## Examples
