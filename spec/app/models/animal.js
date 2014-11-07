@@ -18,5 +18,12 @@ module.exports = {
       { event: 'save', fn: function(next) { this.color = 'green'; next() }}
     ]
   },
+  virtuals: {
+    nameAndColor:{
+      get:function(){
+        return this.name + " is " + this.color;
+      }
+    }
+  },
   options: {}
 };
