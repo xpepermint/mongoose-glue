@@ -34,9 +34,9 @@ describe('mongoose', function() {
       expect(odm.model('bird').testMethod()).toBe('cm');
     });
 
-    it('should handle `plugins`', function(done) {
-      odm.model('bird').create({ name: 'x' }, function(err, data) {
-        expect(typeof data.createdAt).not.toBe('undefined');
+    it('should handle `virtuals`', function(done) {
+      odm.model('bird').create({ name: 'x',color:'y' }, function(err, data) {
+        expect(data.nameAndColor).toBe('x is green'); //green because of middlewares
         done();
       });
     });
