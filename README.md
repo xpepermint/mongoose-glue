@@ -1,5 +1,7 @@
 # [mongoose](mongoosejs.com)-glue
 
+DEPRECATED!
+
 ![Build Status](https://travis-ci.org/xpepermint/mongoose-glue.svg?branch=master)&nbsp;[![NPM version](https://badge.fury.io/js/mongoose-glue.svg)](http://badge.fury.io/js/mongoose-glue)&nbsp;[![Dependency Status](https://gemnasium.com/xpepermint/mongoose-glue.svg)](https://gemnasium.com/xpepermint/mongoose-glue)
 
 [Mongoose](http://mongoosejs.com/) is one of the best ODMs for MongoDB. Mongoose provides a straight-forward, schema-based solution to modeling your application data and includes built-in type casting, validation, query building, business logic hooks and more, out of the box.
